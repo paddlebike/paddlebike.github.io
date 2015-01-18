@@ -88,14 +88,14 @@
         var value =  decodeURI(
                 (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
         );
-        console.log('getURLParameter for : ' + name + 'value ' + value)
+        console.log('getURLParameter for : ' + name + ' value : ' + value)
         return value;
     }
 
     $().ready(function() {
 
         var initialLoad = true;
-
+/*
         var wScale = getURLParameter('u');
         if (wScale === 'C') {
             $("#radioC").attr("checked", "checked");
@@ -134,6 +134,7 @@
         }
 
         $("select").slider("refresh");
+        */
 
         $("#b-cancel").click(function() {
             console.log("Cancel");
@@ -148,6 +149,13 @@
             console.log(location);
             document.location = location;
         });
+        
+        //Set form values to whatever is passed in.
+        var obj = jQuery.parseJSON(decodeURIComponent(window.location.search.substring(1)));
+        for(key in obj) {
+          $("#"+[key]).val(obj[key]);
+          $("#"+[key]).val(obj[key]).slider("refresh");       
+        }
 
         initialLoad = false;
     });
