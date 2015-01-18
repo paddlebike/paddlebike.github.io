@@ -125,6 +125,8 @@
                 }
                 $("input[name='riverScale']").checkboxradio("refresh");
             } else if (key === 'batteryEnabled'){
+                batteryEnabled.value = obj[key] === 'on' ? true : false;
+                /*
                 if (obj[key] === 'off') {
                     batteryEnabled.prop('selectedIndex', 0);
                 } else {
@@ -135,7 +137,7 @@
                     debugEnabled.prop('selectedIndex', 0);
                 } else {
                     debugEnabled.prop('selectedIndex', 1);
-                }
+                } */
             }
         }
 
