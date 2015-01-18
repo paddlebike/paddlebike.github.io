@@ -127,18 +127,9 @@
             } else if (key === 'batteryEnabled'){
                 batteryEnabled.value = obj[key] === 'on' ? true : false;
                 $("#"+[key]).val(obj[key]).slider("refresh");  
-                /*
-                if (obj[key] === 'off') {
-                    batteryEnabled.prop('selectedIndex', 0);
-                } else {
-                    batteryEnabled.prop('selectedIndex', 1);
-                }
             } else if (key === 'debugEnabled'){
-                if (obj[key] === 'off') {
-                    debugEnabled.prop('selectedIndex', 0);
-                } else {
-                    debugEnabled.prop('selectedIndex', 1);
-                } */
+                debugEnabled.value = obj[key] === 'on' ? true : false;
+                $("#"+[key]).val(obj[key]).slider("refresh");
             }
         }
 
