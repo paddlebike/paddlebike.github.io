@@ -126,7 +126,7 @@
                 $("input[name='riverScale']").checkboxradio("refresh");
             } else if (key === 'batteryEnabled'){
                 batteryEnabled.value = obj[key] === 'on' ? true : false;
-                $("input[name='batteryEnabled']").checkboxradio("refresh");
+                $("#"+[key]).val(obj[key]).slider("refresh");  
                 /*
                 if (obj[key] === 'off') {
                     batteryEnabled.prop('selectedIndex', 0);
