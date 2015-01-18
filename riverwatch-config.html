@@ -103,6 +103,13 @@
     $().ready(function() {
 
         var initialLoad = true;
+        
+        //Set form values to whatever is passed in.
+        var obj = jQuery.parseJSON(decodeURIComponent(window.location.search.substring(1)));
+        for(key in obj) {
+          console.log('Parameter for : ' + key + ' value : ' + obj[key]);
+          $("#"+[key]).val(obj[key]);
+        }
 /*
         var wScale = getURLParameter('u');
         if (wScale === 'C') {
@@ -158,13 +165,7 @@
             document.location = location;
         });
         
-        //Set form values to whatever is passed in.
-        var obj = jQuery.parseJSON(decodeURIComponent(window.location.search.substring(1)));
-        for(key in obj) {
-          console.log('Parameter for : ' + key);
-          $("#"+[key]).val(obj[key]);
-          //$("#"+[key]).val(obj[key]).slider("refresh");       
-        }
+
 
         initialLoad = false;
     });
