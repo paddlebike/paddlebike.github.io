@@ -110,15 +110,14 @@
           console.log('Parameter for : ' + key + ' value : ' + obj[key]);
           $("#"+[key]).val(obj[key]);
         }
-/*
-        var wScale = getURLParameter('u');
-        if (wScale === 'C') {
+
+        if (obj['tempScale'] === 'C') {
             $("#radioC").attr("checked", "checked");
         } else {
             $("#radioF").attr("checked", "checked");
         }
-        $("input[name='weather-scale']").checkboxradio("refresh");
-
+        $("input[name='tempScale']").checkboxradio("refresh");
+/*
         var rScale = getURLParameter('r');
         if (rScale === 'CFS') {
             $("#radioCFS").attr("checked", "checked");
