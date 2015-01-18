@@ -124,41 +124,23 @@
                     $("#radioFT").attr("checked", "checked");
                 }
                 $("input[name='riverScale']").checkboxradio("refresh");
+            } else if (key === 'batteryEnabled'){
+                if (obj[key] === 'off') {
+                    batteryEnabled.prop('selectedIndex', 0);
+                } else {
+                    batteryEnabled.prop('selectedIndex', 1);
+                }
+            } else if (key === 'debugEnabled'){
+                if (obj[key] === 'off') {
+                    debugEnabled.prop('selectedIndex', 0);
+                } else {
+                    debugEnabled.prop('selectedIndex', 1);
+                }
             }
         }
 
 
-/*
-        var rScale = getURLParameter('r');
-        if (rScale === 'CFS') {
-            $("#radioCFS").attr("checked", "checked");
-        } else {
-            $("#radioFT").attr("checked", "checked");
-        }
-        $("input[name='river-scale']").checkboxradio("refresh");
-
-        var gaugeID = getURLParameter('g');
-        if (gaugeID !== 'null') {
-            $("#text-gaugeID").val(gaugeID);
-        }
-
-        var flipBattery = $("select[name=flipbattery]");
-        var battery = getURLParameter('b');
-        if (battery === 'off') {
-            flipBattery.prop('selectedIndex', 0);
-        } else {
-            flipBattery.prop('selectedIndex', 1);
-        }
-
-        var flipDebug = $("select[name=flipdebug]");
-        var debug = getURLParameter('d');
-        if (debug === 'true') {
-            flipDebug.prop('selectedIndex', 1);
-        } else {
-            flipDebug.prop('selectedIndex', 0);
-        }
-
-        $("select").slider("refresh");
+        /* $("select").slider("refresh");
         */
 
         $("#b-cancel").click(function() {
