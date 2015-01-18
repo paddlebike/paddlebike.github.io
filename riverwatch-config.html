@@ -107,16 +107,27 @@
         //Set form values to whatever is passed in.
         var obj = jQuery.parseJSON(decodeURIComponent(window.location.search.substring(1)));
         for(key in obj) {
-          console.log('Parameter for : ' + key + ' value : ' + obj[key]);
-          $("#"+[key]).val(obj[key]);
+            console.log('Parameter for : ' + key + ' value : ' + obj[key]);
+            $("#"+[key]).val(obj[key]);
+          
+            if (key === 'tempScale'){
+                if (obj[key] === 'C') {
+                    $("#radioC").attr("checked", "checked");
+                } else {
+                    $("#radioF").attr("checked", "checked");
+                }
+                $("input[name='tempScale']").checkboxradio("refresh");
+            } else if (key === 'riverScale'){
+                if (rScale === 'CFS') {
+                    $("#radioCFS").attr("checked", "checked");
+                } else {
+                    $("#radioFT").attr("checked", "checked");
+                }
+                $("input[name='river-scale']").checkboxradio("refresh");
+            }
         }
 
-        if (obj['tempScale'] === 'C') {
-            $("#radioC").attr("checked", "checked");
-        } else {
-            $("#radioF").attr("checked", "checked");
-        }
-        $("input[name='tempScale']").checkboxradio("refresh");
+
 /*
         var rScale = getURLParameter('r');
         if (rScale === 'CFS') {
