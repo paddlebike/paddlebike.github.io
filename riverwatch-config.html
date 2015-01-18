@@ -118,12 +118,12 @@
                 }
                 $("input[name='tempScale']").checkboxradio("refresh");
             } else if (key === 'riverScale'){
-                if (rScale === 'CFS') {
+                if (obj[key] === 'CFS') {
                     $("#radioCFS").attr("checked", "checked");
                 } else {
                     $("#radioFT").attr("checked", "checked");
                 }
-                $("input[name='river-scale']").checkboxradio("refresh");
+                $("input[name='riverScale']").checkboxradio("refresh");
             }
         }
 
