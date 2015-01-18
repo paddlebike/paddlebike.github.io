@@ -21,17 +21,17 @@
         <div data-role="fieldcontain" id="gaugeID" data-mini="true">
             <div class="ui-field-contain" >
                 <label for="text-gaugeID">USGS Gauge ID:</label>
-                <input type="text" name="text-gaugeid"  id="text-gaugeID" autocapitalize="off" autocorrect="off" autocomplete="off" value="">
+                <input type="text" name="text-gaugeID"  id="text-gaugeID" autocapitalize="off" autocorrect="off" autocomplete="off" value="">
             </div>
         </div>
 
         <div data-role="fieldcontain">
             <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
                 <legend>Temperature Scale:</legend>
-                <input type="radio" name="weather-scale" id="radioF" value="F" class="custom" />
+                <input type="radio" name="tempScale" id="radioF" value="F" class="custom" />
                 <label for="radioF">°Fahrenheit</label>
 
-                <input type="radio" name="weather-scale" id="radioC" value="C" class="custom" />
+                <input type="radio" name="tempScale" id="radioC" value="C" class="custom" />
                 <label for="radioC">°Celsius</label>
 
             </fieldset>
@@ -40,18 +40,18 @@
         <div data-role="fieldcontain">
             <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
                 <legend>River Scale:</legend>
-                <input type="radio" name="river-scale" id="radioFT" value="FT" class="custom" />
+                <input type="radio" name="riverScale" id="radioFT" value="FT" class="custom" />
                 <label for="radioFT">Guage Height</label>
 
-                <input type="radio" name="river-scale" id="radioCFS" value="CFS" class="custom" />
+                <input type="radio" name="riverScale" id="radioCFS" value="CFS" class="custom" />
                 <label for="radioCFS">Gauge Cubit Feet per Second</label>
 
             </fieldset>
         </div>
 
         <div data-role="fieldcontain" >
-            <label for="flipbattery">Display Battery:</label>
-            <select name="flipbattery" id="flipbattery" data-role="slider" data-mini="true">
+            <label for="batteryEnabled">Display Battery:</label>
+            <select name="batteryEnabled" id="batteryEnabled" data-role="slider" data-mini="true">
                 <option value="off">Off</option>
                 <option value="on">On</option>
             </select>
@@ -59,8 +59,8 @@
 
 
         <div data-role="fieldcontain">
-            <label for="flipdebug">Debug Mode:</label>
-            <select name="flipdebug" id="flipdebug" data-role="slider" data-mini="true">
+            <label for="debugEnabled">Debug Mode:</label>
+            <select name="debugEnabled" id="debugEnabled" data-role="slider" data-mini="true">
                 <option value="off">Off</option>
                 <option value="on">On</option>
             </select>
@@ -75,6 +75,7 @@
 </div>
 <script>
     function saveOptions() {
+        /*
         return {
             'wScale':   $("#radioF").is(':checked')     ? 'F' : 'C',
             'rScale':   $("#radioFT").is(':checked')    ? 'FT' : 'CFS',
@@ -82,13 +83,20 @@
             'debug':   $("select[name=flipdebug]").prop('selectedIndex')   ? 'true' : 'false',
             'gauge':   $("#text-apikey").val()
         };
+        */
+        var options = {}
+        //Add all textual values
+        $('textarea, select, [type="hidden"], [type="password"], [type="text"]').each(function(){options[$(this).attr('id')] = $(this).val();})
+        //Add all checkbox type values
+        $('[type="radio"], [type="checkbox"]').each(function(){options[$(this).attr('id')] = $(this).is(':checked');})
+        return options;
     }
 
     function getURLParameter(name) {
         var value =  decodeURI(
                 (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
         );
-        console.log('getURLParameter for : ' + name + ' value : ' + value)
+        console.log('getURLParameter for : ' + name + ' value : ' + value);
         return value;
     }
 
@@ -153,6 +161,7 @@
         //Set form values to whatever is passed in.
         var obj = jQuery.parseJSON(decodeURIComponent(window.location.search.substring(1)));
         for(key in obj) {
+          console.log('Parameter for : ' + key + ' value : ' + key.val());
           $("#"+[key]).val(obj[key]);
           $("#"+[key]).val(obj[key]).slider("refresh");       
         }
