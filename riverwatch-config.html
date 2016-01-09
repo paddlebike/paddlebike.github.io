@@ -24,14 +24,11 @@
             </div>
         </div>
 
-        <div data-role="fieldcontain" id="playMinCFS-div" data-mini="true">
+        <div data-role="fieldcontain" id="playLevels-div" data-mini="true">
             <div class="ui-field-contain" >
                 <label for="playMinCFS">Min runnable CFS:</label>
                 <input type="text" name="playMinCFS"  id="playMinCFS" autocapitalize="off" autocorrect="off" autocomplete="off" value="">
             </div>
-        </div>
-
-        <div data-role="fieldcontain" id="playMaxCFS-div" data-mini="true">
             <div class="ui-field-contain" >
                 <label for="playMaxCFS">Max runnable CFS:</label>
                 <input type="text" name="playMaxCFS"  id="playMaxCFS" autocapitalize="off" autocorrect="off" autocomplete="off" value="">
@@ -62,24 +59,6 @@
             </fieldset>
         </div>
 
-<!--
-        <div data-role="fieldcontain" >
-            <label for="batteryEnabled">Display Battery:</label>
-            <select name="batteryEnabled" id="batteryEnabled" data-role="slider" data-mini="true">
-                <option value="off">Off</option>
-                <option value="on">On</option>
-            </select>
-        </div>
-
-
-        <div data-role="fieldcontain">
-            <label for="debugEnabled">Debug Mode:</label>
-            <select name="debugEnabled" id="debugEnabled" data-role="slider" data-mini="true">
-                <option value="off">Off</option>
-                <option value="on">On</option>
-            </select>
-        </div>
--->
         <fieldset class="ui-grid-a">
             <div class="ui-block-a"><button type="submit" data-theme="d" id="b-cancel">Cancel</button></div>
             <div class="ui-block-b"><button type="submit" data-theme="b" id="b-submit">Save</button></div>
@@ -138,13 +117,7 @@
                     $("#radioFT").attr("checked", "checked");
                 }
                 $("input[name='riverScale']").checkboxradio("refresh");
-            }/* else if (key === 'batteryEnabled'){
-                batteryEnabled.value = obj[key] === 'on' ? true : false;
-                $("#"+[key]).val(obj[key]).slider("refresh");  
-            } else if (key === 'debugEnabled'){
-                debugEnabled.value = obj[key] === 'on' ? true : false;
-                $("#"+[key]).val(obj[key]).slider("refresh");
-            }*/
+            }
         }
 
 
