@@ -21,7 +21,7 @@
         <div data-role="fieldcontain" id="gaugeID-div" data-mini="true">
             <div class="ui-field-contain" >
                 <label for="gaugeID">USGS Gauge ID:</label>
-                <input type="text" name="gaugeID"  id="gaugeID" autocapitalize="off" autocorrect="off" autocomplete="off" value="">
+                <input type="number" name="gaugeID"  id="gaugeID" autocapitalize="off" autocorrect="off" autocomplete="off" value="">
             </div>
         </div>
 
@@ -49,6 +49,20 @@
             </fieldset>
         </div>
 
+        <div data-role="fieldcontain" id="playMinCFS-div" data-mini="true">
+            <div class="ui-field-contain" >
+                <label for="playMinCFS">Min runnable CFS:</label>
+                <input type="number" name="playMinCFS"  id="playMinCFS" autocapitalize="off" autocorrect="off" autocomplete="off" value="">
+            </div>
+        </div>
+
+        <div data-role="fieldcontain" id="playMaxCFS-div" data-mini="true">
+            <div class="ui-field-contain" >
+                <label for="playMaxCFS">Max runnable CFS:</label>
+                <input type="number" name="playMaxCFS"  id="playMaxCFS" autocapitalize="off" autocorrect="off" autocomplete="off" value="">
+            </div>
+        </div>
+<!--
         <div data-role="fieldcontain" >
             <label for="batteryEnabled">Display Battery:</label>
             <select name="batteryEnabled" id="batteryEnabled" data-role="slider" data-mini="true">
@@ -65,7 +79,7 @@
                 <option value="on">On</option>
             </select>
         </div>
-
+-->
         <fieldset class="ui-grid-a">
             <div class="ui-block-a"><button type="submit" data-theme="d" id="b-cancel">Cancel</button></div>
             <div class="ui-block-b"><button type="submit" data-theme="b" id="b-submit">Save</button></div>
